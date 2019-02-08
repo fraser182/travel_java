@@ -1,20 +1,20 @@
 public class Plane {
 
-    private PlaneType planeModel;
+    private PlaneType planeType;
 
-    public Plane(PlaneType planeModel) {
-        this.planeModel = planeModel;
+    public Plane(PlaneType planeType) {
+        this.planeType = planeType;
     }
 
-    public PlaneType getPlaneModel() {
-        return this.planeModel;
+    public PlaneType getPlaneType() {
+        return this.planeType;
     }
 
     public int getCapacityFromEnum() {
-        return this.planeModel.getCapacity();
+        return this.planeType.getCapacity();
     }
 
     public int getTotalMassAvailableFromEnum() {
-        return this.planeModel.getTotalMassAvailable();
+        return this.planeType.getTotalMassAvailable();
     }
 }
