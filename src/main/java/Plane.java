@@ -17,4 +17,6 @@ public class Plane {
     public int getTotalMassAvailableFromEnum() {
         return this.planeType.getTotalMassAvailable();
     }
+
+
 }

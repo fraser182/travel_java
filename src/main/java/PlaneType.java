@@ -1,8 +1,8 @@
 public enum PlaneType {
 
-    BOEING747(416, 50000),
-    BOEING787(10, 42000),
-    AIRBUSA380(5, 21000);
+    BOEING747(400, 18400),
+    BOEING787(300, 13800),
+    AIRBUSA380(5, 230);
 
     private final int capacity;
     private final int totalMassAvailable;
@@ -20,4 +20,6 @@ public enum PlaneType {
     public int getTotalMassAvailable() {
         return totalMassAvailable;
     }
+
+
 }

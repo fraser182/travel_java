@@ -20,13 +20,15 @@ public class PlaneTest {
 
     @Test
     public void getPlaneCapacity() {
-        assertEquals(416, plane.getCapacityFromEnum());
+        assertEquals(400, plane.getCapacityFromEnum());
     }
 
     @Test
-    public void getPlaneTotalMass() {
-        assertEquals(50000, plane.getTotalMassAvailableFromEnum());
+    public void getPlaneTotalMassAvailable() {
+        assertEquals(18400, plane.getTotalMassAvailableFromEnum());
     }
+
+
 }
 
 

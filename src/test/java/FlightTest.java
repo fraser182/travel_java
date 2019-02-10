@@ -34,7 +34,6 @@ public class FlightTest {
         assertEquals(PlaneType.BOEING747, flight.getPlaneType());
     }
 
-
     @Test
     public void hasFlightNumber() {
     assertEquals("BA2957", flight.getFlightNumber());
@@ -57,28 +56,36 @@ public class FlightTest {
 
     @Test
     public void canCheckPlaneHasNoPassengers() {
-        assertEquals(0, flight.countNumberOfPassengersCheckedIn());
+        assertEquals(0, flight.countPassengers());
+    }
+
+    @Test
+    public void canReturnBookedPassengerList() {
+        flight.bookPassengerOnFlight(passenger);
+        assertEquals(passenger, flight.getPassengers().get(0));
     }
 
     @Test
     public void canAddAPassenger() {
-        flight.addIfEnoughSpace(passenger);
-        assertEquals(1,flight.countNumberOfPassengersCheckedIn());
+        flight.bookPassengerOnFlight(passenger);
+        assertEquals(1,flight.countPassengers());
+//        assertEquals(1,flight.getPassengers() );
     }
+
 
 
     @Test
     public void cantOverfillThePlane() {
-        flight2.addIfEnoughSpace(passenger);
-        flight2.addIfEnoughSpace(passenger);
-        flight2.addIfEnoughSpace(passenger);
-        flight2.addIfEnoughSpace(passenger);
-        flight2.addIfEnoughSpace(passenger);
-        assertEquals(5,flight2.countNumberOfPassengersCheckedIn());
+        flight2.bookPassengerOnFlight(passenger);
+        flight2.bookPassengerOnFlight(passenger);
+        flight2.bookPassengerOnFlight(passenger);
+        flight2.bookPassengerOnFlight(passenger);
+        flight2.bookPassengerOnFlight(passenger);
+        assertEquals(5,flight2.countPassengers());
         assertEquals(0, flight2.getAvailableSeats());
-        flight2.addIfEnoughSpace(passenger);
-        flight2.addIfEnoughSpace(passenger);
-        assertEquals(5, flight2.countNumberOfPassengersCheckedIn());
+        flight2.bookPassengerOnFlight(passenger);
+        flight2.bookPassengerOnFlight(passenger);
+        assertEquals(5, flight2.countPassengers());
         assertEquals(0, flight2.getAvailableSeats());
 
     }
@@ -86,14 +93,14 @@ public class FlightTest {
 
     @Test
     public void canShowAllSeatsAreAvailable() {
-        assertEquals(416, flight.getAvailableSeats());
+        assertEquals(400, flight.getAvailableSeats());
     }
 
     @Test
     public void canBookAPassengerIfSeatIsAvailable() {
-        flight.addIfEnoughSpace(passenger);
-        assertEquals(1, flight.countNumberOfPassengersCheckedIn());
-        assertEquals( 415, flight.getAvailableSeats());
+        flight.bookPassengerOnFlight(passenger);
+        assertEquals(1, flight.countPassengers());
+        assertEquals( 399, flight.getAvailableSeats());
     }
 
 

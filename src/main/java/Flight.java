@@ -19,6 +19,9 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
+    public ArrayList<Passenger> getPassengers() {
+        return passengers;
+    }
 
     public PlaneType getPlaneType() {
         return this.plane.getPlaneType();
@@ -41,18 +44,18 @@ public class Flight {
     }
 
 
-    public int countNumberOfPassengersCheckedIn() {
+    public int countPassengers() {
         return this.passengers.size();
     }
 
     public int getAvailableSeats() {
         int freeSeats = this.plane.getCapacityFromEnum();
-        freeSeats -= countNumberOfPassengersCheckedIn();
+        freeSeats -= countPassengers();
         return freeSeats;
     }
 
 
-    public void addIfEnoughSpace(Passenger passenger) {
+    public void bookPassengerOnFlight(Passenger passenger) {
         if(getAvailableSeats() > 0) {
             this.passengers.add(passenger);
         }
