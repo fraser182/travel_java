@@ -12,9 +12,9 @@ public class FlightTest {
     Plane plane2;
     Passenger  passenger;
     Passenger  passenger2;
-    Passenger  passenger3;
-    Passenger  passenger4;
-    Passenger  passenger5;
+//    Passenger  passenger3;
+//    Passenger  passenger4;
+//    Passenger  passenger5;
     Flight flight;
     Flight flight2;
 //    Date date;
@@ -30,9 +30,9 @@ public class FlightTest {
         passenger = new Passenger("Alan", 3);
         flight2 = new Flight(plane2, "EZ2312", "VCO", "PIK", "16:00");
         passenger2 = new Passenger("Alan", 3);
-        passenger3 = new Passenger("Lindsay", 3);
-        passenger4 = new Passenger("Lady", 1);
-        passenger5 = new Passenger("Belle", 1);
+//        passenger3 = new Passenger("Lindsay", 3);
+//        passenger4 = new Passenger("Lady", 1);
+//        passenger5 = new Passenger("Belle", 1);
     }
 
     @Test
@@ -95,8 +95,6 @@ public class FlightTest {
         assertEquals(0, flight2.getAvailableSeats());
 
     }
-
-
 
 
     @Test
