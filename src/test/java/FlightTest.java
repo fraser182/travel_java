@@ -1,6 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
+
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
@@ -14,15 +17,18 @@ public class FlightTest {
     Passenger  passenger5;
     Flight flight;
     Flight flight2;
+//    Date date;
+
 
 
     @Before
     public void setUp() throws Exception {
         plane = new Plane (PlaneType.BOEING747);
-        plane2 = new Plane(PlaneType.AIRBUSA380);
+        plane2 = new Plane(PlaneType.BOEING787);
+//        date = new Date();
         flight =  new Flight(plane, "BA2957", "MCO", "GLA", "11:00");
         passenger = new Passenger("Alan", 3);
-        flight2 = new Flight(plane2, "EZ2312", "VCO", "PIK", "16:30");
+        flight2 = new Flight(plane2, "EZ2312", "VCO", "PIK", "16:00");
         passenger2 = new Passenger("Alan", 3);
         passenger3 = new Passenger("Lindsay", 3);
         passenger4 = new Passenger("Lady", 1);
@@ -73,22 +79,24 @@ public class FlightTest {
     }
 
 
-
     @Test
     public void cantOverfillThePlane() {
-        flight2.bookPassengerOnFlight(passenger);
-        flight2.bookPassengerOnFlight(passenger);
-        flight2.bookPassengerOnFlight(passenger);
-        flight2.bookPassengerOnFlight(passenger);
-        flight2.bookPassengerOnFlight(passenger);
-        assertEquals(5,flight2.countPassengers());
+        assertEquals(0,flight2.countPassengers());
+        assertEquals(300, flight2.getAvailableSeats());
+        Passenger passenger = passenger2;
+        for (int i = 0; i < 300; i++) {
+            flight2.bookPassengerOnFlight(passenger);
+        }
+        assertEquals(300,flight2.countPassengers());
         assertEquals(0, flight2.getAvailableSeats());
         flight2.bookPassengerOnFlight(passenger);
         flight2.bookPassengerOnFlight(passenger);
-        assertEquals(5, flight2.countPassengers());
+        assertEquals(300,flight2.countPassengers());
         assertEquals(0, flight2.getAvailableSeats());
 
     }
+
+
 
 
     @Test

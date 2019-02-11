@@ -18,7 +18,7 @@ public class FlightManager {
         return (calculateWeightReservedForAllBaggage()/this.flight.getPlaneType().getCapacity());
     }
 
-    
+
     public int calculateTotalNumberOfBagsBookedOnPlane() {
         int allBagsBookedOnPlane = 0;
         for (Passenger passenger : this.flight.getPassengers()){

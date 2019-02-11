@@ -1,4 +1,6 @@
+
 import java.util.ArrayList;
+
 
 public class Flight {
 
@@ -54,12 +56,10 @@ public class Flight {
         return freeSeats;
     }
 
-
     public void bookPassengerOnFlight(Passenger passenger) {
         if(getAvailableSeats() > 0) {
             this.passengers.add(passenger);
         }
-
     }
 
 
