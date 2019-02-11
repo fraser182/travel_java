@@ -24,4 +24,9 @@ public class Passenger {
         return flight;
     }
 
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+
 }

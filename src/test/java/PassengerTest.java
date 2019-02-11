@@ -6,10 +6,14 @@ import static org.junit.Assert.assertEquals;
 public class PassengerTest {
 
     Passenger passenger;
+    Plane plane;
+    Flight flight;
 
     @Before
     public void before(){
         passenger = new Passenger("Minal", 4);
+
+
     }
 
 
@@ -31,7 +35,11 @@ public class PassengerTest {
 //    public Flight(Plane plane, String flightNumber, String destination, String departureAirport, String departureTime)
     @Test
     public void canSetFlight() {
-        
+        plane = new Plane (PlaneType.BOEING747);
+        flight =  new Flight(plane, "BA2957", "MCO", "GLA", "11:00");
+
+        passenger.setFlight(flight);
+        assertEquals(flight, passenger.getFlight());
 
     }
 }
